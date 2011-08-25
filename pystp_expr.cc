@@ -79,7 +79,7 @@ PyObject* StpExpression_getBVUnsigned(PyObject *self)
  * ========================================================================== */
 PyObject* StpExpression_getBVUnsignedLongLong(PyObject *self)
 {
-  return PyInt_FromLong(getBVUnsigned(((StpExpression*)self)->expr));
+  return PyLong_FromLong(getBVUnsignedLongLong(((StpExpression*)self)->expr));
 }
 
 void StpExpression_dealloc(StpExpression* self)
