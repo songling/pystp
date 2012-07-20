@@ -1,0 +1,191 @@
+diff -aur stp-vanilla/src/extlib-abc/aig/aig/aigPart.c stp-pystp/src/extlib-abc/aig/aig/aigPart.c
+--- stp-vanilla/src/extlib-abc/aig/aig/aigPart.c	2012-07-20 20:27:01.786699546 +0200
++++ stp-pystp/src/extlib-abc/aig/aig/aigPart.c	2012-07-20 19:24:11.685760667 +0200
+@@ -869,6 +869,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Aig_Man_t * Aig_ManChoicePartitioned( Vec_Ptr_t * vAigs, int nPartSize )
+ {
+     extern int Cmd_CommandExecute( void * pAbc, char * sCommand );
+@@ -981,7 +982,7 @@
+     Aig_ManMarkValidChoices( pAig );
+     return pAig;
+ }
+-
++#endif
+ 
+ ////////////////////////////////////////////////////////////////////////
+ ///                       END OF FILE                                ///
+diff -aur stp-vanilla/src/extlib-abc/aig/aig/aigShow.c stp-pystp/src/extlib-abc/aig/aig/aigShow.c
+--- stp-vanilla/src/extlib-abc/aig/aig/aigShow.c	2012-07-20 20:27:01.778703684 +0200
++++ stp-pystp/src/extlib-abc/aig/aig/aigShow.c	2012-07-20 19:25:01.551954464 +0200
+@@ -326,6 +326,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ void Aig_ManShow( Aig_Man_t * pMan, int fHaig, Vec_Ptr_t * vBold )
+ {
+     extern void Abc_ShowFile( char * FileNameDot );
+@@ -347,6 +348,7 @@
+     // visualize the file 
+     Abc_ShowFile( FileNameDot );
+ }
++#endif
+ 
+ 
+ ////////////////////////////////////////////////////////////////////////
+diff -aur stp-vanilla/src/extlib-abc/aig/dar/darRefact.c stp-pystp/src/extlib-abc/aig/dar/darRefact.c
+--- stp-vanilla/src/extlib-abc/aig/dar/darRefact.c	2012-07-20 20:27:02.774188512 +0200
++++ stp-pystp/src/extlib-abc/aig/dar/darRefact.c	2012-07-20 20:04:57.795876700 +0200
+@@ -340,6 +340,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ int Dar_ManRefactorTryCuts( Ref_Man_t * p, Aig_Obj_t * pObj, int nNodesSaved, int Required )
+ {
+     Vec_Ptr_t * vCut;
+@@ -428,6 +429,7 @@
+     }
+     return p->GainBest;
+ }
++#endif
+ 
+ /**Function*************************************************************
+ 
+@@ -461,6 +463,7 @@
+   SeeAlso     []
+  
+ ***********************************************************************/
++#if 0
+ int Dar_ManRefactor( Aig_Man_t * pAig, Dar_RefPar_t * pPars )
+ {
+ //    Bar_Progress_t * pProgress;
+@@ -583,6 +586,7 @@
+     return 1;
+ 
+ }
++#endif
+ 
+ ////////////////////////////////////////////////////////////////////////
+ ///                       END OF FILE                                ///
+diff -aur stp-vanilla/src/extlib-abc/aig/dar/darScript.c stp-pystp/src/extlib-abc/aig/dar/darScript.c
+--- stp-vanilla/src/extlib-abc/aig/dar/darScript.c	2012-07-20 20:27:02.774188512 +0200
++++ stp-pystp/src/extlib-abc/aig/dar/darScript.c	2012-07-20 20:06:03.473887738 +0200
+@@ -64,6 +64,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Aig_Man_t * Dar_ManRwsat( Aig_Man_t * pAig, int fBalance, int fVerbose )
+ //alias rwsat       "st; rw -l; b -l; rw -l; rf -l"
+ {
+@@ -108,6 +109,7 @@
+ 
+     return pAig;
+ }
++#endif
+ 
+ 
+ /**Function*************************************************************
+@@ -121,6 +123,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Aig_Man_t * Dar_ManCompress( Aig_Man_t * pAig, int fBalance, int fUpdateLevel, int fVerbose )
+ //alias compress2   "b -l; rw -l; rwz -l; b -l; rwz -l; b -l"
+ {
+@@ -180,6 +183,7 @@
+ 
+     return pAig;
+ }
++#endif
+ 
+ /**Function*************************************************************
+ 
+@@ -192,6 +196,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Aig_Man_t * Dar_ManCompress2( Aig_Man_t * pAig, int fBalance, int fUpdateLevel, int fVerbose )
+ //alias compress2   "b -l; rw -l; rf -l; b -l; rw -l; rwz -l; b -l; rfz -l; rwz -l; b -l"
+ {
+@@ -285,6 +290,7 @@
+     }
+     return pAig;
+ }
++#endif
+ 
+ /**Function*************************************************************
+ 
+@@ -297,6 +303,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Vec_Ptr_t * Dar_ManChoiceSynthesis( Aig_Man_t * pAig, int fBalance, int fUpdateLevel, int fVerbose )
+ //alias resyn    "b; rw; rwz; b; rwz; b"
+ //alias resyn2   "b; rw; rf; b; rw; rwz; b; rfz; rwz; b"
+@@ -311,6 +318,7 @@
+     Vec_PtrPush( vAigs, pAig );
+     return vAigs;
+ }
++#endif
+ 
+ /**Function*************************************************************
+ 
+diff -aur stp-vanilla/src/extlib-abc/aig/kit/kitAig.c stp-pystp/src/extlib-abc/aig/kit/kitAig.c
+--- stp-vanilla/src/extlib-abc/aig/kit/kitAig.c	2012-07-20 20:27:02.838155408 +0200
++++ stp-pystp/src/extlib-abc/aig/kit/kitAig.c	2012-07-20 19:34:28.258678641 +0200
+@@ -95,6 +95,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Aig_Obj_t * Kit_TruthToAig( Aig_Man_t * pMan, Aig_Obj_t ** pFanins, unsigned * pTruth, int nVars, Vec_Int_t * vMemory )
+ {
+     Aig_Obj_t * pObj;
+@@ -113,6 +114,7 @@
+     Kit_GraphFree( pGraph );
+     return pObj;
+ }
++#endif
+ 
+ ////////////////////////////////////////////////////////////////////////
+ ///                       END OF FILE                                ///
+diff -aur stp-vanilla/src/extlib-abc/aig/kit/kitGraph.c stp-pystp/src/extlib-abc/aig/kit/kitGraph.c
+--- stp-vanilla/src/extlib-abc/aig/kit/kitGraph.c	2012-07-20 20:27:02.838155408 +0200
++++ stp-pystp/src/extlib-abc/aig/kit/kitGraph.c	2012-07-20 19:35:01.249605537 +0200
+@@ -349,6 +349,7 @@
+   SeeAlso     []
+ 
+ ***********************************************************************/
++#if 0
+ Kit_Graph_t * Kit_TruthToGraph( unsigned * pTruth, int nVars, Vec_Int_t * vMemory )
+ {
+     Kit_Graph_t * pGraph;
+@@ -365,6 +366,7 @@
+     pGraph = Kit_SopFactor( vMemory, RetValue, nVars, vMemory );
+     return pGraph;
+ }
++#endif
+ 
+ /**Function*************************************************************
+ 
+diff -aur stp-vanilla/src/to-sat/AIG/BBNodeAIG.h stp-pystp/src/to-sat/AIG/BBNodeAIG.h
+--- stp-vanilla/src/to-sat/AIG/BBNodeAIG.h	2012-07-20 20:27:00.883167128 +0200
++++ stp-pystp/src/to-sat/AIG/BBNodeAIG.h	2012-07-20 19:12:26.602647513 +0200
+@@ -10,6 +10,8 @@
+ #ifndef BBNODEAIG_H_
+ #define BBNODEAIG_H_
+ 
++#include <stdint.h>
++
+ #include "../../extlib-abc/aig.h"
+ #include <iostream>
+ 

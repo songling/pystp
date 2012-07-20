@@ -7,7 +7,7 @@ vc = pystp.Stp()
 #   vc_setFlags('n');
 #   vc_setFlags('d');
 #   vc_setFlags('p');
-pystp.setFlags("ndp")
+vc.setFlags("ndp")
  
 #   Expr nresp1 = vc_varExpr(vc, "nresp1", vc_bv32Type(vc));
 nresp1 = vc.varExpr("nresp1", vc.createType(pystp.TYPE_BITVECTOR, 32))

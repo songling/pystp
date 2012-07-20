@@ -54,7 +54,7 @@ pystp_list.o: pystp_list.cc pystp_list.h
 	$(CXX) $(CFLAGS) -c pystp_list.cc
 
 # transform STP static library in a shared library
-libstp.so: libast.a libcinterface.a libconstantbv.a libconsteval.a libminisat.a libsimplifier.a libstp.a
+libstp.so: libstp.a
 	mkdir tmp_stp ;	cd tmp_stp ; for f in $^ ; do ar -x ../$$f ; done ; $(CXX) -shared -o ../$@ *.o *.or ; cd ..
 	rm -fr tmp_stp
 

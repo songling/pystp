@@ -7,7 +7,7 @@ vc = pystp.Stp()
 #   //  vc_setFlags ('n');
 #   vc_setFlags ('d');
 #   vc_setFlags ('p');
-pystp.setFlags("dp")
+vc.setFlags("dp")
 
 #   // 32-bit variable
 #   Expr i = vc_varExpr1(vc, "i", 0, 32);

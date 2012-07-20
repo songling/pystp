@@ -116,6 +116,7 @@ PyObject* Stp_getCounterExample(Stp*, PyObject*);
 PyObject* Stp_counterExample_size(Stp*);
 PyObject* Stp_push(Stp*);
 PyObject* Stp_pop(Stp*);
+PyObject* Stp_setFlags(Stp*, PyObject*);
 
 PyObject* Stp_deleteExpr(Stp*, PyObject*);
 PyObject* Stp_destroy(Stp*);

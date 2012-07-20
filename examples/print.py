@@ -7,7 +7,7 @@ o = pystp.Stp()
 #   vc_setFlags('n');
 #   vc_setFlags('d');
 #   vc_setFlags('p');
-pystp.setFlags("ndp")
+o.setFlags("ndp")
 
 #   Expr ct_3 = vc_bvConstExprFromStr(vc, "00000000000000000000000000000011");
 ct_3 = o.bvConstExprFromStr("00000000000000000000000000000011");

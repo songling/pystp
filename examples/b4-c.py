@@ -1,11 +1,12 @@
 import sys
 import pystp
 
+vc = pystp.Stp()
+
 # vc_setFlags('a');
 # vc_setFlags('w');
 # vc_setFlags('r');
-pystp.setFlags("vsn")
-vc = pystp.Stp()
+vc.setFlags("vsn")
 
 # vc_push(vc);
 e12866 = vc.varExpr("at", vc.createType(pystp.TYPE_BITVECTOR, 5))

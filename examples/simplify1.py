@@ -9,7 +9,7 @@ for j in range(3):
     #     vc_setFlags('d');
     #     vc_setFlags('p');
     #     vc_setFlags('x');
-    pystp.setFlags("ndpx")
+    vc.setFlags("ndpx")
     
     #     Type bv8 = vc_bvType(vc, 8);
     bv8 = vc.createType(pystp.TYPE_BITVECTOR, 8)

@@ -7,7 +7,7 @@ vc = pystp.Stp()
 #   vc_setFlags('n');
 #   vc_setFlags('d');
 #   vc_setFlags('p');
-pystp.setFlags("ndp")
+vc.setFlags("ndp")
 
 #   Expr cvcl_array = vc_varExpr1(vc, "a",32,32);
 cvcl_array = vc.varExpr1("a", 32, 32)

@@ -278,6 +278,10 @@ static PyMethodDef Stp_methods[] = {
    "pop(e) -> None\n"
    "Restore the current context to its state at the last checkpoint."},
 
+  {"setFlags", (PyCFunction)Stp_setFlags, METH_VARARGS,
+   "setFlags(e, flags) -> None\n"
+   "Set the specified constraints solver flags ('flags' must be a string)."},
+
   {"deleteExpr", (PyCFunction)Stp_deleteExpr, METH_VARARGS,
    "deleteExpr(e) -> None\n"
    "Deletes the expression 'e'."},
@@ -454,8 +458,5 @@ PyTypeObject StpType_type = {
   0,                         /* tp_alloc */
   StpType_new,                /* tp_new */
 };
-
-/* === PyStp module method prototypes === */
-static PyObject* PyStp_setFlags(PyObject*, PyObject*);
 
 #endif /* _PYSTP_H */

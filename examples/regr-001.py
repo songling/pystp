@@ -6,7 +6,7 @@ vc = pystp.Stp()
 #   vc_setFlags('n');
 #   vc_setFlags('d');
 #   //vc_setFlags('p');
-pystp.setFlags("nd")
+vc.setFlags("nd")
   
 #   Type bv8 = vc_bvType(vc, 8);
 bv8 = vc.createType(pystp.TYPE_BITVECTOR, 8)

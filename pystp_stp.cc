@@ -198,7 +198,7 @@ PyObject* Stp_getQueryState(Stp *self, PyObject *args)
     /* error parsing input parameters */
     return NULL;
 
-  vc_printQueryStateToBuffer(self->solver, pstpexpr->expr, &buf, &len);
+  vc_printQueryStateToBuffer(self->solver, pstpexpr->expr, &buf, &len, 1);
 
   pystr = PyString_FromString(buf);
 
@@ -1061,6 +1061,38 @@ PyObject* Stp_push(Stp *self)
 PyObject* Stp_pop(Stp *self)
 {
   vc_pop(self->solver);
+
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+/* ========================================================================== *
+ * <method> void vc_setFlag(vc, c)                                            *
+ * ========================================================================== */
+PyObject* Stp_setFlags(Stp *self, PyObject *args)
+{
+  char *flags;
+  char c;
+  int i;
+
+  flags = NULL;
+  if(!PyArg_ParseTuple(args, "s", &flags))
+    /* error parsing input parameters */
+    return NULL;
+
+  for(i=0; i<strlen(flags); i++) {
+    c = flags[i];
+    /* check flag validity */
+    if(c != 'r' && c != 'w' && c != 'a' && c != 's' &&
+       c != 'v' && c != 'c' && c != 'd' && c != 'p' &&
+       c != 'h' && c != 'n' && c != 'x') {
+      /* flag is NOT valid. Skip it */ 
+      DEBUG("warning: skipping invalid flag '%c';\n", c);
+      continue;
+    }
+
+    vc_setFlags(self->solver, c);
+  }
 
   Py_INCREF(Py_None);
   return Py_None;

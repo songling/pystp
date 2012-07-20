@@ -47,44 +47,12 @@ static PyMemberDef pystp_members[] = {
 };
 
 static PyMethodDef pystp_methods[] = {
-  {"setFlags", (PyCFunction)PyStp_setFlags, METH_VARARGS,
-   "setFlags(flags) -> None\n"
-   "Set the specified constraints solver flags ('flags' must be a string)."},
   {NULL}   /* Sentinel */
 };
 
 #ifndef PyMODINIT_FUNC   /* declarations for DLL import/export */
 #define PyMODINIT_FUNC void
 #endif
-
-static PyObject* PyStp_setFlags(PyObject *self, PyObject *args)
-{
-  char *flags;
-  char c;
-  int i;
-
-  flags = NULL;
-  if(!PyArg_ParseTuple(args, "s", &flags))
-    /* error parsing input parameters */
-    return NULL;
-
-  for(i=0; i<strlen(flags); i++) {
-    c = flags[i];
-    /* check flag validity */
-    if(c != 'r' && c != 'w' && c != 'a' && c != 's' &&
-       c != 'v' && c != 'c' && c != 'd' && c != 'p' &&
-       c != 'h' && c != 'n' && c != 'x') {
-      /* flag is NOT valid. Skip it */ 
-      DEBUG("warning: skipping invalid flag '%c';\n", c);
-      continue;
-    }
-
-    vc_setFlags(c);
-  }
-
-  Py_INCREF(Py_None);
-  return Py_None;
-}
 
 #ifdef __cplusplus
 extern "C" 
