@@ -359,6 +359,42 @@ static PyMethodDef StpExpression_methods[] = {
    "getBVUnsignedLongLong() -> Long\n"
    "Return an unsigned long long int from a constant bitvector expression."},
 
+  {"getBVLength", (PyCFunction)StpExpression_getBVLength, METH_NOARGS,
+   "getBVLength() -> Long\n"
+   "Get bit vector length of an expression."},
+
+  {"getChild", (PyCFunction)StpExpression_getChild, METH_VARARGS,
+   "getChild(i) -> Expr\n"
+   "Return the ith child."},
+
+  {"getDegree", (PyCFunction)StpExpression_getDegree, METH_NOARGS,
+   "getDegree() -> Long\n"
+   "Return the degree (number of children) of a node."},
+
+  {"getExprKind", (PyCFunction)StpExpression_getExprKind, METH_NOARGS,
+   "getExprKind() -> Long\n"
+   "Return the expression kind of a node."},
+
+  {"getExprType", (PyCFunction)StpExpression_getExprType, METH_NOARGS,
+   "getExprType() -> Long\n"
+   "Return the expression type of a node."},
+
+  {"getVWidth", (PyCFunction)StpExpression_getVWidth, METH_NOARGS,
+   "getVWidth() -> Long\n"
+   "Return the value bit width of a node."},
+
+  {"getIWidth", (PyCFunction)StpExpression_getIWidth, METH_NOARGS,
+   "getIWidth() -> Long\n"
+   "Return the index bit width of a node."},
+  
+  {"getName", (PyCFunction)StpExpression_getName, METH_NOARGS,
+   "getName() -> String\n"
+   "Return name of expression. must be a variable."},
+
+  {"getID", (PyCFunction)StpExpression_getID, METH_NOARGS,
+   "getID() -> Long\n"
+   "Return the node ID of an Expr."},
+
   {NULL}			/* Sentinel */
 };
 

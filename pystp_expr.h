@@ -42,6 +42,15 @@ PyObject* StpExpression_str(PyObject*);
 PyObject* StpExpression_getBVInt(PyObject*);
 PyObject* StpExpression_getBVUnsigned(PyObject*);
 PyObject* StpExpression_getBVUnsignedLongLong(PyObject*);
+PyObject* StpExpression_getBVLength(PyObject*);
+PyObject* StpExpression_getChild(PyObject*, PyObject*);
+PyObject* StpExpression_getDegree(PyObject*);
+PyObject* StpExpression_getExprKind(PyObject*);
+PyObject* StpExpression_getExprType(PyObject*);
+PyObject* StpExpression_getVWidth(PyObject*);
+PyObject* StpExpression_getIWidth(PyObject*);
+PyObject* StpExpression_getName(PyObject*);
+PyObject* StpExpression_getID(PyObject*);
 
 void StpExpression_dealloc(StpExpression*);
 PyObject* StpExpression_new(PyTypeObject*, PyObject*, PyObject*);

@@ -82,6 +82,87 @@ PyObject* StpExpression_getBVUnsignedLongLong(PyObject *self)
   return PyLong_FromLongLong(getBVUnsignedLongLong(((StpExpression*)self)->expr));
 }
 
+/* ========================================================================== *
+ * <method> int getBVLength(Expr e);
+ * ========================================================================== */
+PyObject* StpExpression_getBVLength(PyObject *self)
+{
+  return PyInt_FromLong(getBVLength(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> Expr getChild(Expr e, int i)
+ * ========================================================================== */
+PyObject* StpExpression_getChild(PyObject* self, PyObject* args)
+{
+  int i = 0;
+  if(!PyArg_ParseTuple(args, "i", 
+		       &i 	             /* Index */
+		       )
+     )
+    /* error parsing input parameters */
+    return NULL;
+
+  return (PyObject*) create_StpExpr(
+          ((StpExpression*)self)->stp_stp, getChild(((StpExpression*)self)->expr, i));
+}
+
+/* ========================================================================== *
+ * <method> int getDegree (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getDegree(PyObject* self)
+{
+  return PyInt_FromLong(getDegree(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> int getExprKind (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getExprKind(PyObject* self)
+{
+  return PyInt_FromLong(getExprKind(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> int getType (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getExprType(PyObject* self)
+{
+  return PyInt_FromLong(getType(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> int getVWidth (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getVWidth(PyObject* self)
+{
+  return PyInt_FromLong(getVWidth(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> int getIWidth (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getIWidth(PyObject* self)
+{
+  return PyInt_FromLong(getIWidth(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> const char* getName (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getName(PyObject* self)
+{
+  return PyString_FromString(exprName(((StpExpression*)self)->expr));
+}
+
+/* ========================================================================== *
+ * <method> int getExprID (Expr e)
+ * ========================================================================== */
+PyObject* StpExpression_getID(PyObject* self)
+{
+  return PyInt_FromLong(getExprID(((StpExpression*)self)->expr));
+}
+
 void StpExpression_dealloc(StpExpression* self)
 {
   DEBUG(" * deallocating EXPR %p [linked to Stp@%p];\n", self->expr, self->stp_stp->solver);
