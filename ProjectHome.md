@@ -1,0 +1,1 @@
+PySTP is a Python extension module that interfaces with [STP](http://sites.google.com/site/stpfastprover/), a decision procedure for the theory of fixed-width bitvectors and arrays. PySTP enables Python scripts to use STP.
